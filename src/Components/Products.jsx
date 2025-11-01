@@ -13,7 +13,7 @@ const Products = ({ handleUpdateCart }) => {
         .then((res) => setProducts(res))
     }, [])
 
-    console.log(products);
+    // console.log(products);
 
 
     return (

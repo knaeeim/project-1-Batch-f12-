@@ -8,15 +8,22 @@ function App() {
   const [carts, setCarts] = useState([])
 
   const handleUpdateCart = (product) => {
-      product["cart-quantity"] = product["cart-quantity"] + 1;
-      console.log(product);
-      setCarts(prev => [...prev, product])
+      setCarts((prev) => {
+          const exists = prev.some(p => p.id === product.id); 
+
+          if(exists){
+            return prev.map((prod) => prod.id === product.id ? {...prod, cartQuantity: prod.cartQuantity + 1 } : prod)
+          }
+          else{
+            return [...prev, {...product, cartQuantity: 1}]
+          }
+      })
   }
 
   console.log(carts);
 
   return (
-    <div className='w-full flex justify-center'>
+    <div className='w-full flex justify-center m-10'>
         <div className='w-[70%]'>
           <Products handleUpdateCart={handleUpdateCart}></Products>
         </div>

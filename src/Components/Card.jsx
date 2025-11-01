@@ -4,9 +4,11 @@ const Card = ({ carts }) => {
     return (
         <div className='my-20 text-center'>
             <h1 className='text-xl font-bold'>Here is your added Products: 0</h1>
-            {
-                carts.map((cart) => <ul><li>{cart.name}</li></ul>)
-            }
+            <ul>
+                {
+                    carts.map((cart) => <li key={cart.id}>{cart.name}</li>)
+                }
+            </ul>
         </div>
     );
 };

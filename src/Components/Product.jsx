@@ -1,4 +1,6 @@
 import React from 'react';
+import { CiShoppingCart } from 'react-icons/ci';
+import { IoBagAddOutline } from 'react-icons/io5';
 
 const Product = ({ product, handleUpdateCart }) => {
     const {name, category, description, price, rating, image} = product;
@@ -22,8 +24,8 @@ const Product = ({ product, handleUpdateCart }) => {
                         <div className="badge badge-outline">$ {price}</div>
                     </div>
                     <div className='flex gap-2 w-full mt-5'>
-                        <button onClick={() => handleUpdateCart(product)} className='btn btn-success btn-outline w-[50%]'>Add to Cart</button>
-                        <button className='btn btn-secondary btn-outline w-[50%]'>Buy Now</button>
+                        <button onClick={() => handleUpdateCart(product)} className='btn btn-success btn-outline w-[50%]'> <CiShoppingCart size={25}/> Add to Cart</button>
+                        <button className='btn btn-secondary btn-outline w-[50%]'> <IoBagAddOutline size={25}/> Buy Now</button>
                     </div>
                 </div>
             </div>
